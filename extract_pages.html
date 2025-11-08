@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Extract Pages - PDF Tools{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="fas fa-file-export"></i> Extract Pages</h1>
+    <p>Extract specific pages from a PDF document</p>
+</div>
+
+<div class="form-container">
+    <form id="extractPagesForm" enctype="multipart/form-data">
+        <div class="file-upload-area" id="uploadArea">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Select PDF File</h3>
+            <p>Choose a PDF file to extract pages from</p>
+            <input type="file" id="fileInput" name="file" accept=".pdf" required>
+            <label for="fileInput" class="upload-button">
+                <i class="fas fa-folder-open"></i> Choose File
+            </label>
+            <div id="fileInfo" class="file-info"></div>
+        </div>
+        <div class="form-group">
+            <label for="pages">Pages to Extract:</label>
+            <input type="text" id="pages" name="pages" class="form-input" 
+                   placeholder="e.g., 1,3,5-7 or 1-5" required>
+            <small class="form-help">Enter page numbers separated by commas, or use ranges (e.g., 1-5, 10, 15-20)</small>
+        </div>
+        <button type="submit" class="submit-button">
+            <i class="fas fa-file-export"></i> Extract Pages
+        </button>
+    </form>
+    <div id="loading" class="loading" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i> Processing...
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Images to PDF - PDF Tools{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="fas fa-images"></i> Images to PDF</h1>
+    <p>Convert multiple images into a single PDF document</p>
+</div>
+
+<div class="form-container">
+    <form id="imagesToPdfForm" enctype="multipart/form-data">
+        <div class="file-upload-area" id="uploadArea">
+            <i class="fas fa-images"></i>
+            <h3>Select Image Files</h3>
+            <p>Choose multiple image files (PNG, JPG, JPEG)</p>
+            <input type="file" id="fileInput" name="files" accept=".png,.jpg,.jpeg" multiple required>
+            <label for="fileInput" class="upload-button">
+                <i class="fas fa-folder-open"></i> Choose Files
+            </label>
+            <div id="fileList" class="file-list"></div>
+        </div>
+        <button type="submit" class="submit-button">
+            <i class="fas fa-file-pdf"></i> Convert to PDF
+        </button>
+    </form>
+    <div id="loading" class="loading" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i> Processing...
+    </div>
+</div>
+{% endblock %}
+

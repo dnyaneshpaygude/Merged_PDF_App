@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Rotate PDF - PDF Tools{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="fas fa-redo"></i> Rotate PDF</h1>
+    <p>Rotate PDF pages by 90, 180, or 270 degrees</p>
+</div>
+
+<div class="form-container">
+    <form id="rotateForm" enctype="multipart/form-data">
+        <div class="file-upload-area" id="uploadArea">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Select PDF File</h3>
+            <p>Choose a PDF file to rotate</p>
+            <input type="file" id="fileInput" name="file" accept=".pdf" required>
+            <label for="fileInput" class="upload-button">
+                <i class="fas fa-folder-open"></i> Choose File
+            </label>
+            <div id="fileInfo" class="file-info"></div>
+        </div>
+        <div class="form-group">
+            <label for="angle">Rotation Angle:</label>
+            <select id="angle" name="angle" class="form-select">
+                <option value="90">90° (Clockwise)</option>
+                <option value="180">180°</option>
+                <option value="270">270° (Counter-clockwise)</option>
+            </select>
+        </div>
+        <button type="submit" class="submit-button">
+            <i class="fas fa-redo"></i> Rotate PDF
+        </button>
+    </form>
+    <div id="loading" class="loading" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i> Processing...
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Extract Text - PDF Tools{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="fas fa-text-height"></i> Extract Text from PDF</h1>
+    <p>Extract all text content from a PDF document</p>
+</div>
+
+<div class="form-container">
+    <form id="extractTextForm" enctype="multipart/form-data">
+        <div class="file-upload-area" id="uploadArea">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Select PDF File</h3>
+            <p>Choose a PDF file to extract text from</p>
+            <input type="file" id="fileInput" name="file" accept=".pdf" required>
+            <label for="fileInput" class="upload-button">
+                <i class="fas fa-folder-open"></i> Choose File
+            </label>
+            <div id="fileInfo" class="file-info"></div>
+        </div>
+        <button type="submit" class="submit-button">
+            <i class="fas fa-text-height"></i> Extract Text
+        </button>
+    </form>
+    <div id="loading" class="loading" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i> Processing...
+    </div>
+    <div id="resultContainer" class="result-container" style="display: none;"></div>
+</div>
+{% endblock %}
+
